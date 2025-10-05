@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - University Clubs Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>UniClubs</h1>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="clubs.html" class="nav-link">Clubs</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-main">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Get in touch with the Clubs Hub team</p>
+            </div>
+        </section>
+
+        <!-- Contact Sections -->
+        <section class="contact-sections">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="contact-form-section">
+                        <h2>Send us a Message</h2>
+                        <p>Have questions, suggestions, or need assistance? Fill out the form below and we'll get back to you within 24 hours.</p>
+                        
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" data-validate="text" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" data-validate="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject...</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="club-info">Club Information</option>
+                                    <option value="event-help">Event Assistance</option>
+                                    <option value="start-club">Starting a New Club</option>
+                                    <option value="sponsorship">Sponsorship Opportunities</option>
+                                    <option value="feedback">Website Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="club">Related Club (Optional)</label>
+                                <select id="club" name="club">
+                                    <option value="">Select a club...</option>
+                                    <option value="drama">Drama Club</option>
+                                    <option value="tech">Tech Club</option>
+                                    <option value="debate">Debate Club</option>
+                                    <option value="sports">Sports Club</option>
+                                    <option value="photography">Photography Club</option>
+                                    <option value="other">Other Club</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Please describe your inquiry in detail..." required></textarea>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <label for="newsletter">Subscribe to our monthly newsletter for club updates and events</label>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="contact-info-section">
+                        <h2>Get in Touch</h2>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">📧</div>
+                                <div class="method-info">
+                                    <h3>Email Us</h3>
+                                    <p>clubs@university.edu</p>
+                                    <small>Response within 24 hours</small>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="method-icon">📞</div>
+                                <div class="method-info">
+                                    <h3>Call Us</h3>
+                                    <p>(555) 123-4567</p>
+                                    <small>Mon-Fri, 9AM-5PM</small>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="method-icon">🏢</div>
+                                <div class="method-info">
+                                    <h3>Visit Us</h3>
+                                    <p>Student Center, Room 205<br>University Campus</p>
+                                    <small>Open during office hours</small>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="method-icon">💬</div>
+                                <div class="method-info">
+                                    <h3>Live Chat</h3>
+                                    <p>Available on website</p>
+                                    <small>Mon-Fri, 10AM-4PM</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Office Hours -->
+                        <div class="office-hours">
+                            <h3>Office Hours</h3>
+                            <div class="hours-grid">
+                                <div class="hour-day">
+                                    <span>Monday - Friday</span>
+                                    <span>9:00 AM - 5:00 PM</span>
+                                </div>
+                                <div class="hour-day">
+                                    <span>Saturday</span>
+                                    <span>10:00 AM - 2:00 PM</span>
+                                </div>
+                                <div class="hour-day">
+                                    <span>Sunday</span>
+                                    <span>Closed</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Emergency Contact -->
+                        <div class="emergency-contact">
+                            <h3>Urgent Matters</h3>
+                            <p>For urgent club-related issues during non-office hours, contact Campus Security at <strong>(555) 911-HELP</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Club Specific Contacts -->
+        <section class="club-contacts-section">
+            <div class="container">
+                <h2>Club-Specific Contacts</h2>
+                <p>Need to reach a specific club directly? Here are their contact details:</p>
+                
+                <div class="club-contacts-grid">
+                    <div class="club-contact-card">
+                        <div class="club-icon">🎭</div>
+                        <h3>Drama Club</h3>
+                        <p>drama@university.edu</p>
+                        <p>Faculty Advisor: Prof. Sarah Chen</p>
+                        <a href="mailto:drama@university.edu" class="contact-link">Email Club</a>
+                    </div>
+
+                    <div class="club-contact-card">
+                        <div class="club-icon">💻</div>
+                        <h3>Tech Club</h3>
+                        <p>tech@university.edu</p>
+                        <p>Faculty Advisor: Dr. Michael Roberts</p>
+                        <a href="mailto:tech@university.edu" class="contact-link">Email Club</a>
+                    </div>
+
+                    <div class="club-contact-card">
+                        <div class="club-icon">⚖️</div>
+                        <h3>Debate Club</h3>
+                        <p>debate@university.edu</p>
+                        <p>Faculty Advisor: Dr. Emily Watson</p>
+                        <a href="mailto:debate@university.edu" class="contact-link">Email Club</a>
+                    </div>
+
+                    <div class="club-contact-card">
+                        <div class="club-icon">⚽</div>
+                        <h3>Sports Club</h3>
+                        <p>sports@university.edu</p>
+                        <p>Faculty Advisor: Coach David Miller</p>
+                        <a href="mailto:sports@university.edu" class="contact-link">Email Club</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>How do I start a new club?</h3>
+                        <p>To start a new club, you need at least 5 interested students, a faculty advisor, and a completed club registration form. Submit your proposal to the Clubs Hub office for review.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Can I join multiple clubs?</h3>
+                        <p>Absolutely! Students are encouraged to explore different interests by joining multiple clubs. There's no limit to how many clubs you can be part of.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Are there any membership fees?</h3>
+                        <p>Most clubs are free to join. Some specialized clubs may have minimal fees for materials or equipment, but these are always clearly communicated upfront.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>How do I get funding for club events?</h3>
+                        <p>Clubs can apply for funding through the Student Government Association. Submit a detailed event proposal and budget at least 4 weeks before your event.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Can alumni join clubs?</h3>
+                        <p>While clubs are primarily for current students, some clubs welcome alumni participation. Contact the specific club for their alumni policy.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>How do I reserve space for club meetings?</h3>
+                        <p>Room reservations can be made through the Clubs Hub office. Submit your request at least 72 hours in advance for regular meetings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="container">
+                <h2>Find Us on Campus</h2>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <div class="map-content">
+                            <h3>Student Center - Room 205</h3>
+                            <p>University Main Campus</p>
+                            <p>123 University Drive, City, State 12345</p>
+                            <div class="map-directions">
+                                <p><strong>Directions:</strong> Enter through the main Student Center doors, take the elevator to the 2nd floor, turn left, and we're the third door on the right.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Email: clubs@university.edu</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Address: Student Center, Room 205</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="clubs.html">All Clubs</a></li>
+                        <li><a href="events.html">Events Calendar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Club Handbook</a></li>
+                        <li><a href="#">Event Planning Guide</a></li>
+                        <li><a href="#">Funding Resources</a></li>
+                        <li><a href="#">Leadership Training</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2024 University Clubs Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/form-validation.js"></script>
+</body>
+</html>

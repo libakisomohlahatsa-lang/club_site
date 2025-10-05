@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Clubs - University Clubs Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- React CDN for development -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>UniClubs</h1>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="clubs.html" class="nav-link">Clubs</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="clubs-main">
+        <section class="page-hero">
+            <div class="container">
+                <h1>Our Student Clubs</h1>
+                <p>Find your community and pursue your passions</p>
+            </div>
+        </section>
+
+        <section class="clubs-listing">
+            <div class="container">
+                <div class="club-detail" id="drama">
+                    <div class="club-info">
+                        <h2>🎭 Drama Club</h2>
+                        <p>The Drama Club provides a creative outlet for students interested in theater, acting, and stage production. We produce several plays throughout the year and welcome students of all experience levels.</p>
+                        <ul>
+                            <li>Weekly meetings: Tuesdays, 6 PM @ Arts Building</li>
+                            <li>Upcoming: Spring Musical Auditions - March 20</li>
+                            <li>Contact: drama@university.edu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="club-detail" id="tech">
+                    <div class="club-info">
+                        <h2>💻 Tech Club</h2>
+                        <p>For students passionate about technology, programming, and innovation. We host hackathons, workshops, and tech talks to help members develop their skills and connect with industry professionals.</p>
+                        <ul>
+                            <li>Weekly meetings: Wednesdays, 7 PM @ Tech Lab</li>
+                            <li>Upcoming: 24-Hour Hackathon - March 22</li>
+                            <li>Contact: tech@university.edu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Add other clubs similarly -->
+            </div>
+        </section>
+
+        <!-- React Registration Form -->
+        <section class="registration-section">
+            <div class="container">
+                <h2>Join a Club Today!</h2>
+                <div class="react-registration-form" id="react-registration"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <!-- Load React Components -->
+    <script type="text/babel" src="react-components/club-registration.js"></script>
+    <script type="text/babel" src="react-components/react-app.js"></script>
+    
+    <!-- Existing JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="js/form-validation.js"></script>
+</body>
+</html>

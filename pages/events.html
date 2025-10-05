@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Calendar - University Clubs Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>UniClubs</h1>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="clubs.html" class="nav-link">Clubs</a></li>
+                    <li><a href="events.html" class="nav-link active">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="events-main">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Events Calendar</h1>
+                <p>Stay updated with all club activities and university events</p>
+            </div>
+        </section>
+
+        <!-- Events Filter -->
+        <section class="events-filter">
+            <div class="container">
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">All Events</button>
+                    <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+                    <button class="filter-btn" data-filter="this-week">This Week</button>
+                    <button class="filter-btn" data-filter="month">This Month</button>
+                    <button class="filter-btn" data-filter="past">Past Events</button>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="list">List View</button>
+                    <button class="view-btn" data-view="calendar">Calendar View</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Calendar View -->
+        <section class="calendar-view" id="calendar-view" style="display: none;">
+            <div class="container">
+                <div class="calendar-header">
+                    <button class="calendar-nav" id="prev-month">❮</button>
+                    <h2 id="current-month">March 2024</h2>
+                    <button class="calendar-nav" id="next-month">❯</button>
+                </div>
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- Calendar will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Events List View -->
+        <section class="events-list" id="events-list">
+            <div class="container">
+                <!-- March Events -->
+                <div class="events-month">
+                    <h2>March 2024</h2>
+                    <div class="events-grid">
+                        
+                        <article class="event-card" data-date="2024-03-15" data-category="arts">
+                            <div class="event-date">
+                                <div class="date-day">15</div>
+                                <div class="date-month">MAR</div>
+                            </div>
+                            <div class="event-info">
+                                <span class="event-category">Drama Club</span>
+                                <h3>Annual Drama Night Performance</h3>
+                                <p class="event-time">⏰ 6:00 PM - 9:00 PM | 🏛️ University Auditorium</p>
+                                <p class="event-description">Join us for an evening of spectacular performances by our talented drama club members. Featuring scenes from classic and contemporary plays.</p>
+                                <div class="event-actions">
+                                    <button class="rsvp-btn">RSVP Now</button>
+                                    <span class="event-status">85 people attending</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="event-card" data-date="2024-03-20" data-category="arts">
+                            <div class="event-date">
+                                <div class="date-day">20</div>
+                                <div class="date-month">MAR</div>
+                            </div>
+                            <div class="event-info">
+                                <span class="event-category">Drama Club</span>
+                                <h3>Spring Musical Auditions</h3>
+                                <p class="event-time">⏰ 4:00 PM - 7:00 PM | 🏛️ Main Auditorium</p>
+                                <p class="event-description">Auditions for our spring musical "Into the Woods". All roles available - no experience necessary! Come showcase your talent.</p>
+                                <div class="event-actions">
+                                    <button class="rsvp-btn">Sign Up</button>
+                                    <span class="event-status">Sign-ups required</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="event-card" data-date="2024-03-22" data-category="academic">
+                            <div class="event-date">
+                                <div class="date-day">22</div>
+                                <div class="date-month">MAR</div>
+                            </div>
+                            <div class="event-info">
+                                <span class="event-category">Tech Club</span>
+                                <h3>24-Hour Hackathon</h3>
+                                <p class="event-time">⏰ 9:00 AM (Mar 22) - 9:00 AM (Mar 23) | 💻 Tech Innovation Center</p>
+                                <p class="event-description">Annual 24-hour coding competition. Form teams, build amazing projects, and win prizes! Food and drinks provided.</p>
+                                <div class="event-actions">
+                                    <button class="rsvp-btn">Register Team</button>
+                                    <span class="event-status">45 teams registered</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="event-card" data-date="2024-03-25" data-category="sports">
+                            <div class="event-date">
+                                <div class="date-day">25</div>
+                                <div class="date-month">MAR</div>
+                            </div>
+                            <div class="event-info">
+                                <span class="event-category">Sports Club</span>
+                                <h3>Intramural Soccer Tournament</h3>
+                                <p class="event-time">⏰ 10:00 AM - 4:00 PM | ⚽ Sports Field</p>
+                                <p class="event-description">Annual intramural soccer competition. Form your team of 7 players or join as a free agent. Trophies for winners!</p>
+                                <div class="event-actions">
+                                    <button class="rsvp-btn">Join Tournament</button>
+                                    <span class="event-status">12 teams registered</span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- April Events -->
+                <div class="events-month">
+                    <h2>April 2024</h2>
+                    <div class="events-grid">
+                        
+                        <article class="event-card" data-date="2024-04-05" data-category="academic">
+                            <div class="event-date">
+                                <div class="date-day">05</div>
+                                <div class="date-month">APR</div>
+                            </div>
+                            <div class="event-info">
+                                <span class="event-category">Debate Club</span>
+                                <h3>Inter-University Debate Competition</h3>
+                                <p class="event-time">⏰ 1:00 PM - 5:00 PM | 🏛️ Main Conference Hall</p>
+                                <p class="event-description">Watch our debate team compete against other universities in this exciting tournament. Topics include current events and policy issues.</p>
+                                <div class="event-actions">
+                                    <button class="rsvp-btn">Attend as Audience</button>
+                                    <span class="event-status">Free admission</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="event-card" data-date="2024-04-12" data-category="academic">
+                            <div class="event-date">
+                                <div class="date-day">12</div>
+                                <div class="date-month">APR</div>
+                            </div>
+                            <div class="event-info">
+                                <span class="event-category">Tech Club</span>
+                                <h3>AI & Machine Learning Workshop</h3>
+                                <p class="event-time">⏰ 3:00 PM - 6:00 PM | 💻 Computer Lab B</p>
+                                <p class="event-description">Hands-on workshop introducing AI and machine learning concepts. No prior experience required. Bring your laptop!</p>
+                                <div class="event-actions">
+                                    <button class="rsvp-btn">Register</button>
+                                    <span class="event-status">Limited to 30 participants</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="event-card" data-date="2024-04-18" data-category="arts">
+                            <div class="event-date">
+                                <div class="date-day">18</div>
+                                <div class="date-month">APR</div>
+                            </div>
+                            <div class="event-info">
+                                <span class="event-category">Photography Club</span>
+                                <h3>Spring Campus Photo Walk</h3>
+                                <p class="event-time">⏰ 2:00 PM - 5:00 PM | 📷 Meet at Main Quad</p>
+                                <p class="event-description">Capture the beauty of spring on campus. All skill levels welcome. We'll review photos and select best shots for exhibition.</p>
+                                <div class="event-actions">
+                                    <button class="rsvp-btn">Join Walk</button>
+                                    <span class="event-status">Weather permitting</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="event-card" data-date="2024-04-26" data-category="sports">
+                            <div class="event-date">
+                                <div class="date-day">26</div>
+                                <div class="date-month">APR</div>
+                            </div>
+                            <div class="event-info">
+                                <span class="event-category">Sports Club</span>
+                                <h3>Beach Volleyball Tournament</h3>
+                                <p class="event-time">⏰ 11:00 AM - 6:00 PM | 🏐 Recreation Center Beach Courts</p>
+                                <p class="event-description">Spring beach volleyball competition. 2v2 format. Sign up with a partner or we'll match you with someone!</p>
+                                <div class="event-actions">
+                                    <button class="rsvp-btn">Sign Up Team</button>
+                                    <span class="event-status">Early registration discount</span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- Past Events -->
+                <div class="events-month past-events" style="display: none;">
+                    <h2>Past Events</h2>
+                    <div class="events-grid">
+                        
+                        <article class="event-card past" data-date="2024-02-14" data-category="arts">
+                            <div class="event-date">
+                                <div class="date-day">14</div>
+                                <div class="date-month">FEB</div>
+                            </div>
+                            <div class="event-info">
+                                <span class="event-category">Drama Club</span>
+                                <h3>Valentine's Day Improv Show</h3>
+                                <p class="event-time">⏰ Completed Event</p>
+                                <p class="event-description">Hilarious improv comedy show with love-themed sketches and audience participation.</p>
+                                <div class="event-actions">
+                                    <span class="event-status past">Event completed</span>
+                                    <button class="view-photos-btn">View Photos</button>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Never Miss an Event!</h2>
+                    <p>Subscribe to our weekly newsletter and get event updates delivered to your inbox.</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Enter your email address" required>
+                            <button type="submit">Subscribe</button>
+                        </div>
+                        <p class="form-note">We respect your privacy. Unsubscribe at any time.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Email: clubs@university.edu</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Address: Student Center, Room 205</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="clubs.html">All Clubs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Event Resources</h4>
+                    <ul>
+                        <li><a href="#">Event Calendar</a></li>
+                        <li><a href="#">Room Booking</a></li>
+                        <li><a href="#">Event Guidelines</a></li>
+                        <li><a href="#">Promotion Help</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2024 University Clubs Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/events-calendar.js"></script>
+</body>
+</html>
