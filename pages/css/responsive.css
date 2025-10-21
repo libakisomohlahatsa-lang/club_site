@@ -1,61 +1,1053 @@
-/* Mobile First Responsive Design */
+/* Add these styles to the existing style.css file, under the appropriate sections */
+
+/* Modal Form Styles (Add under "Modal Styles" section) */
+#add-event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#add-event-form h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#add-event-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#add-event-form label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+}
+
+#add-event-form input,
+#add-event-form select,
+#add-event-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#add-event-form input:focus,
+#add-event-form select:focus,
+#add-event-form textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); /* Consistent with --secondary-color */
+}
+
+#add-event-form textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 200px;
+}
+
+#add-event-form .form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+#add-event-form .form-actions .btn {
+    min-width: 120px;
+}
+
+/* Accessibility Enhancements (Add under "Focus styles for accessibility" section) */
+.calendar-event:focus,
+.event-grid-card:focus,
+.event-card:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+#add-event-form .btn:focus,
+#add-event-form input:focus,
+#add-event-form select:focus,
+#add-event-form textarea:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Form Validation States */
+#add-event-form input:invalid:focus,
+#add-event-form select:invalid:focus,
+#add-event-form textarea:invalid:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2); /* Consistent with --accent-color */
+}
+
+#add-event-form input:valid:focus,
+#add-event-form select:valid:focus,
+#add-event-form textarea:valid:focus {
+    border-color: var(--success-color);
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2); /* Consistent with --success-color */
+}
+
+/* CSS Variables for Consistent Theme */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --border-radius: 8px;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+    font-size: 16px; /* Base font size for mobile */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header Styles - Mobile First */
+.main-header {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.logo h1 {
+    font-size: 1.4rem; /* Smaller on mobile */
+    color: var(--white);
+}
+
+/* Navigation Styles - Mobile First */
+.nav-toggle {
+    display: block; /* Always show on mobile */
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    bottom: -8px;
+}
+
+/* Mobile menu animation */
+.nav-toggle.active .hamburger {
+    background: transparent;
+}
+
+.nav-toggle.active .hamburger::before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active .hamburger::after {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.nav-menu {
+    display: none;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--primary-color);
+    flex-direction: column;
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    z-index: 999;
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 0;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: var(--secondary-color);
+}
+
+/* Page Hero - Mobile First */
+.page-hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 100px 0 40px; /* Adjusted for mobile */
+    text-align: center;
+    margin-top: 70px; /* Adjusted for smaller header */
+}
+
+.page-hero h1 {
+    font-size: 1.8rem; /* Smaller on mobile */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.page-hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+/* Hero Actions - Mobile First */
+.hero-actions {
+    display: flex;
+    flex-direction: column; /* Stack buttons on mobile */
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem; /* Larger touch targets */
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
+    width: 100%; /* Full width on mobile */
+    max-width: 300px; /* But not too wide */
+    min-height: 44px; /* Minimum touch target size */
+}
+
+/* About Page Styles - Mobile First */
+.about-section {
+    padding: 60px 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem; /* Smaller on mobile */
+    line-height: 1.2;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Stats Section - Mobile First */
+.stats-section {
+    background: var(--light-bg);
+    padding: 40px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.stat-item {
+    padding: 1.5rem;
+}
+
+.stat-number {
+    font-size: 2rem; /* Smaller on mobile */
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Team Section - Mobile First */
+.team-section {
+    padding: 60px 0;
+}
+
+.team-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1.5rem;
+}
+
+.team-member {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.member-photo .photo-placeholder {
+    width: 80px; /* Smaller on mobile */
+    height: 80px;
+    background: var(--secondary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Events Filter - Mobile First */
+.events-filter {
+    background: var(--light-bg);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.events-filter .container {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 1rem;
+}
+
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 0.75rem 1rem; /* Larger touch targets */
+    border: 2px solid var(--secondary-color);
+    background: transparent;
+    color: var(--secondary-color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-height: 44px; /* Minimum touch target */
+}
+
+.search-filter {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    color: #666;
+    z-index: 1;
+}
+
+.search-box input {
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    width: 100%;
+    font-size: 1rem;
+    background: var(--white);
+    min-height: 44px;
+}
+
+#category-filter {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background: var(--white);
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    min-height: 44px;
+}
+
+.view-toggle {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.view-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    background: var(--white);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    min-height: 44px;
+    flex: 1;
+}
+
+/* Calendar View - Mobile First */
+.calendar-view {
+    padding: 1.5rem 0;
+    overflow-x: auto; /* Allow horizontal scrolling on mobile */
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.calendar-nav {
+    background: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(40px, 1fr)); /* Smaller cells on mobile */
+    gap: 1px;
+    background: #e1e5e9;
+    border: 1px solid #e1e5e9;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    min-width: 320px; /* Minimum width for calendar */
+}
+
+.calendar-day {
+    background: var(--white);
+    padding: 0.5rem;
+    min-height: 60px; /* Smaller on mobile */
+    position: relative;
+    font-size: 0.8rem;
+}
+
+.calendar-day.header {
+    background: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    font-weight: bold;
+    padding: 0.75rem 0.5rem;
+    min-height: auto;
+    font-size: 0.7rem;
+}
+
+.day-number {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+}
+
+.calendar-event {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 0.15rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.6rem;
+    margin-bottom: 0.15rem;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Events Grid View - Mobile First */
+.events-grid-view {
+    padding: 1.5rem 0;
+}
+
+.grid-view-header {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.sort-options {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.sort-options label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.sort-options select {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: var(--white);
+    width: 100%;
+    min-height: 44px;
+}
+
+#events-grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1rem;
+}
+
+.event-grid-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Event Cards - Mobile First */
+.event-card {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--secondary-color);
+    position: relative;
+}
+
+.event-date {
+    text-align: center;
+    background: var(--light-bg);
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    order: -1; /* Move date to top on mobile */
+}
+
+.event-header {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.event-footer {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.event-actions {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 0.5rem;
+    align-items: stretch;
+}
+
+.rsvp-btn,
+.view-photos-btn {
+    width: 100%; /* Full width buttons on mobile */
+    min-height: 44px;
+    justify-content: center;
+}
+
+.event-interactions {
+    display: flex;
+    justify-content: space-around; /* Evenly space on mobile */
+    gap: 0.5rem;
+}
+
+.interaction-btn {
+    flex: 1; /* Equal width buttons */
+    justify-content: center;
+    min-height: 44px;
+}
+
+/* Modal Styles - Mobile First */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    width: 95%; /* Full width on mobile */
+    max-width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 1rem 1.5rem;
+}
+
+.modal-header h2 {
+    font-size: 1.3rem;
+}
+
+.modal-body {
+    padding: 1rem 1.5rem;
+}
+
+/* Contact Form - Mobile First */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 2rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    min-height: 44px; /* Larger touch targets */
+}
+
+.submit-btn {
+    min-height: 44px;
+    width: 100%;
+}
+
+/* Footer - Mobile First */
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 2rem;
+    text-align: center;
+}
+
+.social-links {
+    justify-content: center;
+}
+
+/* Enhanced Mobile Responsive Design */
 @media (max-width: 768px) {
-    .nav-toggle {
-        display: block;
-    }
-
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--primary-color);
-        flex-direction: column;
-        padding: 1rem 0;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-link {
-        display: block;
-        padding: 1rem 2rem;
-    }
-
-    .hero-content h2 {
-        font-size: 2rem;
-    }
-
-    .clubs-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .events-slideshow {
-        height: 300px;
-    }
-
+    /* Additional mobile optimizations */
     .container {
         padding: 0 15px;
+    }
+    
+    /* Improve touch targets */
+    select, 
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    textarea {
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+    
+    /* Modal form adjustments */
+    #add-event-form .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #add-event-form .form-actions .btn {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .modal-content {
+        width: 95%;
+        max-height: 85vh;
+        padding: 0;
+    }
+    
+    /* Calendar improvements */
+    .calendar-grid {
+        font-size: 0.7rem;
+    }
+    
+    .calendar-day {
+        min-height: 50px;
+        padding: 0.25rem;
+    }
+    
+    /* Event card improvements */
+    .event-tags {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .attendees-avatars {
+        display: none; /* Hide on very small screens */
+    }
+    
+    /* Stats section */
+    .stats-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
     }
 }
 
 @media (max-width: 480px) {
-    .hero {
-        padding: 100px 0 60px;
+    /* Extra small devices */
+    #add-event-form h3 {
+        font-size: 1.25rem;
     }
 
-    .hero-content h2 {
-        font-size: 1.8rem;
+    #add-event-form label {
+        font-size: 0.9rem;
     }
 
-    .featured-clubs h2,
-    .events-section h2 {
-        font-size: 2rem;
+    #add-event-form input,
+    #add-event-form select,
+    #add-event-form textarea {
+        font-size: 0.9rem;
+        padding: 0.75rem; /* Maintain padding for touch */
     }
 
-    .club-card {
-        padding: 1.5rem;
+    .modal-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .page-hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .page-hero p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 0.875rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet and Larger Screens */
+@media (min-width: 769px) {
+    body {
+        font-size: 18px;
+    }
+    
+    .nav-toggle {
+        display: none;
+    }
+    
+    .nav-menu {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        width: auto;
+        background: transparent;
+        padding: 0;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius);
+    }
+    
+    .page-hero {
+        padding: 120px 0 60px;
+        margin-top: 80px;
+    }
+    
+    .page-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-actions {
+        flex-direction: row;
+    }
+    
+    .btn {
+        width: auto;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .events-filter .container {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .search-filter {
+        flex-direction: row;
+    }
+    
+    .search-box input {
+        width: 250px;
+    }
+    
+    #category-filter {
+        width: auto;
+    }
+    
+    #events-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .event-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1.5rem;
+    }
+    
+    .event-date {
+        order: 0;
+    }
+    
+    .event-header {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .event-footer {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .event-actions {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .rsvp-btn,
+    .view-photos-btn {
+        width: auto;
+    }
+    
+    .event-interactions {
+        justify-content: flex-start;
+    }
+    
+    .interaction-btn {
+        flex: none;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        text-align: left;
+    }
+    
+    .social-links {
+        justify-content: flex-start;
+    }
+    
+    .modal-content {
+        width: 90%;
+        max-width: 600px;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+    }
+    
+    .calendar-day {
+        min-height: 120px;
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+    
+    .calendar-event {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* Loading states */
+.event-card.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Focus styles for accessibility */
+.btn:focus,
+.filter-btn:focus,
+.view-btn:focus,
+.calendar-nav:focus,
+.rsvp-btn:focus,
+.dropdown-toggle:focus,
+.interaction-btn:focus,
+.close-modal:focus,
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .events-filter,
+    .hero-actions,
+    .event-actions,
+    .newsletter-section,
+    .main-footer,
+    .nav-toggle,
+    .main-nav {
+        display: none !important;
+    }
+    
+    .event-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .main-header {
+        position: static;
+    }
+    
+    .page-hero {
+        margin-top: 0;
     }
 }

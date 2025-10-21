@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events Calendar - University Clubs Hub</title>
+    <title>Events - University Clubs Hub</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Header Section -->
     <header class="main-header">
         <div class="container">
             <div class="logo">
@@ -28,279 +29,429 @@
         </div>
     </header>
 
-    <main class="events-main">
-        <!-- Page Hero -->
-        <section class="page-hero">
-            <div class="container">
-                <h1>Events Calendar</h1>
-                <p>Stay updated with all club activities and university events</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>University Events</h1>
+                <p>Discover exciting events, workshops, and activities happening across campus</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" id="scroll-to-events">View Events</button>
+                    <button class="btn btn-secondary" id="register-event-btn">Register Your Event</button>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Events Filter -->
-        <section class="events-filter">
-            <div class="container">
-                <div class="filter-options">
+    <!-- Upcoming Events Section -->
+    <section id="upcoming-events">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <div class="event-filters">
                     <button class="filter-btn active" data-filter="all">All Events</button>
-                    <button class="filter-btn" data-filter="upcoming">Upcoming</button>
-                    <button class="filter-btn" data-filter="this-week">This Week</button>
-                    <button class="filter-btn" data-filter="month">This Month</button>
-                    <button class="filter-btn" data-filter="past">Past Events</button>
-                </div>
-                <div class="view-toggle">
-                    <button class="view-btn active" data-view="list">List View</button>
-                    <button class="view-btn" data-view="calendar">Calendar View</button>
+                    <button class="filter-btn" data-filter="tech">Tech Club</button>
+                    <button class="filter-btn" data-filter="drama">Drama Club</button>
+                    <button class="filter-btn" data-filter="sports">Sports Club</button>
+                    <button class="filter-btn" data-filter="academic">Academic</button>
                 </div>
             </div>
-        </section>
-
-        <!-- Events Calendar View -->
-        <section class="calendar-view" id="calendar-view" style="display: none;">
-            <div class="container">
-                <div class="calendar-header">
-                    <button class="calendar-nav" id="prev-month">❮</button>
-                    <h2 id="current-month">March 2024</h2>
-                    <button class="calendar-nav" id="next-month">❯</button>
-                </div>
-                <div class="calendar-grid" id="calendar-grid">
-                    <!-- Calendar will be populated by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Events List View -->
-        <section class="events-list" id="events-list">
-            <div class="container">
-                <!-- March Events -->
-                <div class="events-month">
-                    <h2>March 2024</h2>
-                    <div class="events-grid">
-                        
-                        <article class="event-card" data-date="2024-03-15" data-category="arts">
-                            <div class="event-date">
-                                <div class="date-day">15</div>
-                                <div class="date-month">MAR</div>
-                            </div>
-                            <div class="event-info">
-                                <span class="event-category">Drama Club</span>
-                                <h3>Annual Drama Night Performance</h3>
-                                <p class="event-time">⏰ 6:00 PM - 9:00 PM | 🏛️ University Auditorium</p>
-                                <p class="event-description">Join us for an evening of spectacular performances by our talented drama club members. Featuring scenes from classic and contemporary plays.</p>
-                                <div class="event-actions">
-                                    <button class="rsvp-btn">RSVP Now</button>
-                                    <span class="event-status">85 people attending</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="event-card" data-date="2024-03-20" data-category="arts">
-                            <div class="event-date">
-                                <div class="date-day">20</div>
-                                <div class="date-month">MAR</div>
-                            </div>
-                            <div class="event-info">
-                                <span class="event-category">Drama Club</span>
-                                <h3>Spring Musical Auditions</h3>
-                                <p class="event-time">⏰ 4:00 PM - 7:00 PM | 🏛️ Main Auditorium</p>
-                                <p class="event-description">Auditions for our spring musical "Into the Woods". All roles available - no experience necessary! Come showcase your talent.</p>
-                                <div class="event-actions">
-                                    <button class="rsvp-btn">Sign Up</button>
-                                    <span class="event-status">Sign-ups required</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="event-card" data-date="2024-03-22" data-category="academic">
-                            <div class="event-date">
-                                <div class="date-day">22</div>
-                                <div class="date-month">MAR</div>
-                            </div>
-                            <div class="event-info">
-                                <span class="event-category">Tech Club</span>
-                                <h3>24-Hour Hackathon</h3>
-                                <p class="event-time">⏰ 9:00 AM (Mar 22) - 9:00 AM (Mar 23) | 💻 Tech Innovation Center</p>
-                                <p class="event-description">Annual 24-hour coding competition. Form teams, build amazing projects, and win prizes! Food and drinks provided.</p>
-                                <div class="event-actions">
-                                    <button class="rsvp-btn">Register Team</button>
-                                    <span class="event-status">45 teams registered</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="event-card" data-date="2024-03-25" data-category="sports">
-                            <div class="event-date">
-                                <div class="date-day">25</div>
-                                <div class="date-month">MAR</div>
-                            </div>
-                            <div class="event-info">
-                                <span class="event-category">Sports Club</span>
-                                <h3>Intramural Soccer Tournament</h3>
-                                <p class="event-time">⏰ 10:00 AM - 4:00 PM | ⚽ Sports Field</p>
-                                <p class="event-description">Annual intramural soccer competition. Form your team of 7 players or join as a free agent. Trophies for winners!</p>
-                                <div class="event-actions">
-                                    <button class="rsvp-btn">Join Tournament</button>
-                                    <span class="event-status">12 teams registered</span>
-                                </div>
-                            </div>
-                        </article>
-
-                    </div>
-                </div>
-
-                <!-- April Events -->
-                <div class="events-month">
-                    <h2>April 2024</h2>
-                    <div class="events-grid">
-                        
-                        <article class="event-card" data-date="2024-04-05" data-category="academic">
-                            <div class="event-date">
-                                <div class="date-day">05</div>
-                                <div class="date-month">APR</div>
-                            </div>
-                            <div class="event-info">
-                                <span class="event-category">Debate Club</span>
-                                <h3>Inter-University Debate Competition</h3>
-                                <p class="event-time">⏰ 1:00 PM - 5:00 PM | 🏛️ Main Conference Hall</p>
-                                <p class="event-description">Watch our debate team compete against other universities in this exciting tournament. Topics include current events and policy issues.</p>
-                                <div class="event-actions">
-                                    <button class="rsvp-btn">Attend as Audience</button>
-                                    <span class="event-status">Free admission</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="event-card" data-date="2024-04-12" data-category="academic">
-                            <div class="event-date">
-                                <div class="date-day">12</div>
-                                <div class="date-month">APR</div>
-                            </div>
-                            <div class="event-info">
-                                <span class="event-category">Tech Club</span>
-                                <h3>AI & Machine Learning Workshop</h3>
-                                <p class="event-time">⏰ 3:00 PM - 6:00 PM | 💻 Computer Lab B</p>
-                                <p class="event-description">Hands-on workshop introducing AI and machine learning concepts. No prior experience required. Bring your laptop!</p>
-                                <div class="event-actions">
-                                    <button class="rsvp-btn">Register</button>
-                                    <span class="event-status">Limited to 30 participants</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="event-card" data-date="2024-04-18" data-category="arts">
-                            <div class="event-date">
-                                <div class="date-day">18</div>
-                                <div class="date-month">APR</div>
-                            </div>
-                            <div class="event-info">
-                                <span class="event-category">Photography Club</span>
-                                <h3>Spring Campus Photo Walk</h3>
-                                <p class="event-time">⏰ 2:00 PM - 5:00 PM | 📷 Meet at Main Quad</p>
-                                <p class="event-description">Capture the beauty of spring on campus. All skill levels welcome. We'll review photos and select best shots for exhibition.</p>
-                                <div class="event-actions">
-                                    <button class="rsvp-btn">Join Walk</button>
-                                    <span class="event-status">Weather permitting</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="event-card" data-date="2024-04-26" data-category="sports">
-                            <div class="event-date">
-                                <div class="date-day">26</div>
-                                <div class="date-month">APR</div>
-                            </div>
-                            <div class="event-info">
-                                <span class="event-category">Sports Club</span>
-                                <h3>Beach Volleyball Tournament</h3>
-                                <p class="event-time">⏰ 11:00 AM - 6:00 PM | 🏐 Recreation Center Beach Courts</p>
-                                <p class="event-description">Spring beach volleyball competition. 2v2 format. Sign up with a partner or we'll match you with someone!</p>
-                                <div class="event-actions">
-                                    <button class="rsvp-btn">Sign Up Team</button>
-                                    <span class="event-status">Early registration discount</span>
-                                </div>
-                            </div>
-                        </article>
-
-                    </div>
-                </div>
-
-                <!-- Past Events -->
-                <div class="events-month past-events" style="display: none;">
-                    <h2>Past Events</h2>
-                    <div class="events-grid">
-                        
-                        <article class="event-card past" data-date="2024-02-14" data-category="arts">
-                            <div class="event-date">
-                                <div class="date-day">14</div>
-                                <div class="date-month">FEB</div>
-                            </div>
-                            <div class="event-info">
-                                <span class="event-category">Drama Club</span>
-                                <h3>Valentine's Day Improv Show</h3>
-                                <p class="event-time">⏰ Completed Event</p>
-                                <p class="event-description">Hilarious improv comedy show with love-themed sketches and audience participation.</p>
-                                <div class="event-actions">
-                                    <span class="event-status past">Event completed</span>
-                                    <button class="view-photos-btn">View Photos</button>
-                                </div>
-                            </div>
-                        </article>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Newsletter Section -->
-        <section class="newsletter-section">
-            <div class="container">
-                <div class="newsletter-content">
-                    <h2>Never Miss an Event!</h2>
-                    <p>Subscribe to our weekly newsletter and get event updates delivered to your inbox.</p>
-                    <form class="newsletter-form" id="newsletter-form">
-                        <div class="form-group">
-                            <input type="email" placeholder="Enter your email address" required>
-                            <button type="submit">Subscribe</button>
+            
+            <div class="events-grid">
+                <!-- Event Card 1 -->
+                <article class="event-card" data-category="tech">
+                    <div class="event-image">
+                        <img src="images/tech_fair.jpeg" alt="Tech Fair 2024">
+                        <div class="event-badge">
+                            <i class="fas fa-star"></i> Featured
                         </div>
-                        <p class="form-note">We respect your privacy. Unsubscribe at any time.</p>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-meta">
+                            <span class="event-date">
+                                <i class="far fa-calendar"></i> April 15, 2024
+                            </span>
+                            <span class="event-time">
+                                <i class="far fa-clock"></i> 10:00 AM - 4:00 PM
+                            </span>
+                        </div>
+                        <h3 class="event-title">Tech Fair 2024</h3>
+                        <p class="event-description">
+                            Explore the latest innovations in technology with interactive demos, workshops, and networking opportunities.
+                        </p>
+                        <div class="event-footer">
+                            <span class="event-location">
+                                <i class="fas fa-map-marker-alt"></i> Engineering Building
+                            </span>
+                            <button class="btn btn-outline register-btn">Register</button>
+                        </div>
+                    </div>
+                </article>
 
+                <!-- Event Card 2 -->
+                <article class="event-card" data-category="drama">
+                    <div class="event-image">
+                        <img src="images/spring_musical.jpeg" alt="Spring Musical">
+                        <div class="countdown-timer" data-date="2024-04-20">
+                            <span class="countdown-days">15</span> days
+                        </div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-meta">
+                            <span class="event-date">
+                                <i class="far fa-calendar"></i> April 20, 2024
+                            </span>
+                            <span class="event-time">
+                                <i class="far fa-clock"></i> 7:00 PM - 9:30 PM
+                            </span>
+                        </div>
+                        <h3 class="event-title">Spring Musical: Into the Woods</h3>
+                        <p class="event-description">
+                            A spectacular performance by our talented drama club. Don't miss this magical journey through classic fairy tales.
+                        </p>
+                        <div class="event-footer">
+                            <span class="event-location">
+                                <i class="fas fa-map-marker-alt"></i> University Auditorium
+                            </span>
+                            <button class="btn btn-outline register-btn">Get Tickets</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Event Card 3 -->
+                <article class="event-card" data-category="sports">
+                    <div class="event-image">
+                        <img src="images/sports_day.jpeg" alt="Annual Sports Day">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-meta">
+                            <span class="event-date">
+                                <i class="far fa-calendar"></i> May 5, 2024
+                            </span>
+                            <span class="event-time">
+                                <i class="far fa-clock"></i> 9:00 AM - 5:00 PM
+                            </span>
+                        </div>
+                        <h3 class="event-title">Annual Sports Day</h3>
+                        <p class="event-description">
+                            Compete in various sports activities, team games, and enjoy food trucks and entertainment throughout the day.
+                        </p>
+                        <div class="event-footer">
+                            <span class="event-location">
+                                <i class="fas fa-map-marker-alt"></i> University Stadium
+                            </span>
+                            <button class="btn btn-outline register-btn">Join Team</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Event Card 4 -->
+                <article class="event-card" data-category="academic">
+                    <div class="event-image">
+                        <img src="images/research_symposium.jpeg" alt="Research Symposium">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-meta">
+                            <span class="event-date">
+                                <i class="far fa-calendar"></i> April 25, 2024
+                            </span>
+                            <span class="event-time">
+                                <i class="far fa-clock"></i> 1:00 PM - 5:00 PM
+                            </span>
+                        </div>
+                        <h3 class="event-title">Undergraduate Research Symposium</h3>
+                        <p class="event-description">
+                            Showcasing innovative research projects by undergraduate students across all disciplines.
+                        </p>
+                        <div class="event-footer">
+                            <span class="event-location">
+                                <i class="fas fa-map-marker-alt"></i> Science Center
+                            </span>
+                            <button class="btn btn-outline register-btn">Attend</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Event Card 5 -->
+                <article class="event-card" data-category="tech">
+                    <div class="event-image">
+                        <img src="images/coding_workshop.jpeg" alt="Web Development Workshop">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-meta">
+                            <span class="event-date">
+                                <i class="far fa-calendar"></i> April 18, 2024
+                            </span>
+                            <span class="event-time">
+                                <i class="far fa-clock"></i> 3:00 PM - 6:00 PM
+                            </span>
+                        </div>
+                        <h3 class="event-title">Web Development Workshop</h3>
+                        <p class="event-description">
+                            Learn HTML, CSS, and JavaScript fundamentals in this hands-on workshop. Perfect for beginners!
+                        </p>
+                        <div class="event-footer">
+                            <span class="event-location">
+                                <i class="fas fa-map-marker-alt"></i> Computer Lab 302
+                            </span>
+                            <button class="btn btn-outline register-btn">Register</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Event Card 6 -->
+                <article class="event-card" data-category="drama">
+                    <div class="event-image">
+                        <img src="images/improv_night.jpeg" alt="Improv Comedy Night">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-meta">
+                            <span class="event-date">
+                                <i class="far fa-calendar"></i> May 12, 2024
+                            </span>
+                            <span class="event-time">
+                                <i class="far fa-clock"></i> 8:00 PM - 10:00 PM
+                            </span>
+                        </div>
+                        <h3 class="event-title">Improv Comedy Night</h3>
+                        <p class="event-description">
+                            Laugh the night away with our hilarious improv team. Audience participation encouraged!
+                        </p>
+                        <div class="event-footer">
+                            <span class="event-location">
+                                <i class="fas fa-map-marker-alt"></i> Student Union
+                            </span>
+                            <button class="btn btn-outline register-btn">Get Tickets</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Events Section -->
+    <section id="past-events">
+        <div class="container">
+            <div class="section-header">
+                <h2>Past Events</h2>
+                <p>Relive the memories from our previous events</p>
+            </div>
+            
+            <div class="slideshow-container">
+                <!-- Slide 1 -->
+                <div class="slide fade">
+                    <div class="slide-content">
+                        <div class="slide-image">
+                            <img src="images/valentines_improv.jpeg" alt="Valentine's Day Improv Show">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Valentine's Day Improv Show</h3>
+                            <p class="event-date">February 14, 2024</p>
+                            <p class="event-description">
+                                A hilarious evening of love-themed improv comedy that had the audience in stitches. 
+                                Our drama club members showcased their quick wit and comedic timing.
+                            </p>
+                            <div class="event-stats">
+                                <span><i class="fas fa-users"></i> 120 attendees</span>
+                                <span><i class="fas fa-heart"></i> 45 likes</span>
+                            </div>
+                            <button class="btn btn-primary view-gallery-btn">View Gallery</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide fade">
+                    <div class="slide-content">
+                        <div class="slide-image">
+                            <img src="images/winter_workshop.jpeg" alt="Winter Coding Workshop">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Winter Coding Workshop</h3>
+                            <p class="event-date">January 20, 2024</p>
+                            <p class="event-description">
+                                An intensive introduction to web development that equipped 75 students with 
+                                HTML, CSS, and JavaScript fundamentals.
+                            </p>
+                            <div class="event-stats">
+                                <span><i class="fas fa-users"></i> 75 attendees</span>
+                                <span><i class="fas fa-heart"></i> 32 likes</span>
+                            </div>
+                            <button class="btn btn-primary view-gallery-btn">View Gallery</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide fade">
+                    <div class="slide-content">
+                        <div class="slide-image">
+                            <img src="images/holiday_party.jpeg" alt="Holiday Celebration">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Holiday Celebration Party</h3>
+                            <p class="event-date">December 15, 2023</p>
+                            <p class="event-description">
+                                A festive end-of-semester celebration with games, food, and music that brought 
+                                together students from all clubs and departments.
+                            </p>
+                            <div class="event-stats">
+                                <span><i class="fas fa-users"></i> 200+ attendees</span>
+                                <span><i class="fas fa-heart"></i> 89 likes</span>
+                            </div>
+                            <button class="btn btn-primary view-gallery-btn">View Gallery</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation arrows -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+            <!-- Dots indicator -->
+            <div class="dots-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Register Event Section -->
+    <section id="register-event">
+        <div class="container">
+            <div class="section-header">
+                <h2>Register Your Event</h2>
+                <p>Planning a club event? Fill out the form below to get it added to our calendar</p>
+            </div>
+            
+            <form class="event-registration-form" id="event-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-name">Event Name *</label>
+                        <input type="text" id="event-name" name="event-name" required>
+                        <span class="error-message" id="event-name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="organizing-club">Organizing Club *</label>
+                        <select id="organizing-club" name="organizing-club" required>
+                            <option value="">Select a club</option>
+                            <option value="tech">Tech Club</option>
+                            <option value="drama">Drama Club</option>
+                            <option value="sports">Sports Club</option>
+                            <option value="academic">Academic Club</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="error-message" id="club-error"></span>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-date">Event Date *</label>
+                        <input type="date" id="event-date" name="event-date" required>
+                        <span class="error-message" id="date-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-time">Event Time *</label>
+                        <input type="time" id="event-time" name="event-time" required>
+                        <span class="error-message" id="time-error"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="event-location">Event Location *</label>
+                    <input type="text" id="event-location" name="event-location" required>
+                    <span class="error-message" id="location-error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="event-description">Event Description *</label>
+                    <textarea id="event-description" name="event-description" rows="4" required></textarea>
+                    <span class="error-message" id="description-error"></span>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-name">Contact Person *</label>
+                        <input type="text" id="contact-name" name="contact-name" required>
+                        <span class="error-message" id="contact-name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Contact Email *</label>
+                        <input type="email" id="contact-email" name="contact-email" required>
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="terms" name="terms" required>
+                        I agree to the <a href="#">event guidelines and policies</a>
+                    </label>
+                    <span class="error-message" id="terms-error"></span>
+                </div>
+                
+                <button type="submit" class="btn btn-primary submit-btn">Submit Event</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p>Email: clubs@university.edu</p>
-                    <p>Phone: (555) 123-4567</p>
-                    <p>Address: Student Center, Room 205</p>
+                    <h4>University Clubs Hub</h4>
+                    <p>Connecting students with opportunities to explore interests, develop skills, and build community through campus clubs and events.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="../index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="clubs.html">All Clubs</a></li>
+                        <li><a href="events.html">Events Calendar</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Event Resources</h4>
-                    <ul>
-                        <li><a href="#">Event Calendar</a></li>
-                        <li><a href="#">Room Booking</a></li>
-                        <li><a href="#">Event Guidelines</a></li>
-                        <li><a href="#">Promotion Help</a></li>
-                    </ul>
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> clubs@university.edu</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Student Center, Room 205</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get updates on upcoming events</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
                 </div>
             </div>
-            <p class="copyright">&copy; 2024 University Clubs Hub. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 University Clubs Hub. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
-    <script src="js/events-calendar.js"></script>
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <script src="./js/events.js"></script>
 </body>
 </html>
