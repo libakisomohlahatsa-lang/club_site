@@ -4,108 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Clubs Hub - Home</title>
-    <link rel="stylesheet" href="pages/css/style.css">
-  
+    <link rel="stylesheet" href="./pages/css/style.css">
 </head>
 <body>
-<!-- Header -->
-<header class="main-header">
-  <div class="container">
-    <div class="logo">
-      <h1>UniClubs</h1>
-    </div>
-    <nav class="main-nav" aria-label="Main navigation">
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
-        <span class="hamburger"></span>
-      </button>
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="./pages/about.html" class="nav-link active">About</a></li>
-        <li><a href="./pages/clubs.html" class="nav-link">Clubs</a></li>
-        <li><a href="./pages/events.html" class="nav-link">Events</a></li>
-        <li><a href="./pages/contact.html" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>UniClubs</h1>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="./pages/about.html" class="nav-link">About</a></li>
+                    <li><a href="./pages/clubs.html" class="nav-link">Clubs</a></li>
+                    <li><a href="./pages/events.html" class="nav-link">Events</a></li>
+                    <li><a href="./pages/contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="page-hero">
         <div class="container">
             <div class="hero-content">
-                <h2>Welcome to University Clubs Hub</h2>
+                <h1>Welcome to University Clubs Hub</h1>
                 <p>Discover, Join, and Thrive with Our Student Communities</p>
-                <a href="pages/clubs.html" class="cta-button">Explore Clubs</a>
+                <div class="hero-actions">
+                    <a href="./pages/clubs.html" class="btn btn-primary">Explore Clubs</a>
+                    <a href="./pages/events.html" class="btn btn-outline">View Events</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Featured Clubs Section -->
-    <section class="featured-clubs">
+    <section class="about-section">
         <div class="container">
-            <h2>Our Featured Clubs</h2>
-            <div class="clubs-grid">
-                <article class="club-card">
-                    <div class="club-icon">🎭</div>
+            <div class="section-header">
+                <h2>Our Featured Clubs</h2>
+                <p>Join one of our vibrant student communities</p>
+            </div>
+            <div class="team-grid">
+                <article class="team-member">
+                    <div class="member-photo">
+                        <div class="photo-placeholder">🎭</div>
+                    </div>
                     <h3>Drama Club</h3>
                     <p>Express yourself through theater and performance arts</p>
-                    <a href="clubs.html#drama" class="club-link">Learn More</a>
+                    <a href="./pages/clubs.html#drama" class="btn btn-outline">Learn More</a>
                 </article>
                 
-                <article class="club-card">
-                    <div class="club-icon">💻</div>
+                <article class="team-member">
+                    <div class="member-photo">
+                        <div class="photo-placeholder">💻</div>
+                    </div>
                     <h3>Tech Club</h3>
                     <p>Innovate, code, and build the future together</p>
-                    <a href="clubs.html#tech" class="club-link">Learn More</a>
+                    <a href="./pages/clubs.html#tech" class="btn btn-outline">Learn More</a>
                 </article>
                 
-                <article class="club-card">
-                    <div class="club-icon">⚖️</div>
+                <article class="team-member">
+                    <div class="member-photo">
+                        <div class="photo-placeholder">⚖️</div>
+                    </div>
                     <h3>Debate Club</h3>
                     <p>Sharpen your arguments and public speaking skills</p>
-                    <a href="clubs.html#debate" class="club-link">Learn More</a>
+                    <a href="./pages/clubs.html#debate" class="btn btn-outline">Learn More</a>
                 </article>
                 
-                <article class="club-card">
-                    <div class="club-icon">⚽</div>
+                <article class="team-member">
+                    <div class="member-photo">
+                        <div class="photo-placeholder">⚽</div>
+                    </div>
                     <h3>Sports Club</h3>
                     <p>Stay active and compete in various sports</p>
-                    <a href="clubs.html#sports" class="club-link">Learn More</a>
+                    <a href="./pages/clubs.html#sports" class="btn btn-outline">Learn More</a>
                 </article>
             </div>
         </div>
     </section>
 
     <!-- Events Slideshow Section -->
-    <section class="events-section">
+    <section class="stats-section">
         <div class="container">
-            <h2>Upcoming Events</h2>
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <p>Don't miss these exciting events from our clubs</p>
+            </div>
             <div class="events-slideshow">
                 <div class="slide active">
-                    <img src="pages/images/event-drama.jpeg" alt="Drama Club Performance">
                     <div class="slide-content">
-                        <h3>Annual Drama Night</h3>
-                        <p>March 15, 2024 | 6:00 PM | University Auditorium</p>
+                        <div class="slide-image">
+                            <img src="./pages/images/event-drama.jpeg" alt="Drama Club Performance">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Annual Drama Night</h3>
+                            <p class="event-date">March 15, 2024 | 6:00 PM</p>
+                            <p class="event-description">Join us for an unforgettable evening of theatrical performances by our talented Drama Club members.</p>
+                            <div class="event-stats">
+                                <span><i class="fas fa-users"></i> 120+ Attendees</span>
+                                <span><i class="fas fa-map-marker-alt"></i> University Auditorium</span>
+                            </div>
+                            <a href="./pages/events.html" class="btn btn-primary">View Details</a>
+                        </div>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="pages/images/event-tech.jpeg" alt="Tech Hackathon">
                     <div class="slide-content">
-                        <h3>24-Hour Hackathon</h3>
-                        <p>March 22, 2024 | Tech Building Lab</p>
+                        <div class="slide-image">
+                            <img src="./pages/images/event-tech.jpeg" alt="Tech Hackathon">
+                        </div>
+                        <div class="slide-text">
+                            <h3>24-Hour Hackathon</h3>
+                            <p class="event-date">March 22, 2024 | Tech Building Lab</p>
+                            <p class="event-description">Code, collaborate, and create innovative solutions in our annual 24-hour coding marathon.</p>
+                            <div class="event-stats">
+                                <span><i class="fas fa-users"></i> 80+ Participants</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Tech Building Lab</span>
+                            </div>
+                            <a href="./pages/events.html" class="btn btn-primary">View Details</a>
+                        </div>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="pages/images/event-debate.jpeg" alt="Debate Competition">
                     <div class="slide-content">
-                        <h3>Inter-University Debate</h3>
-                        <p>April 5, 2024 | Main Conference Hall</p>
+                        <div class="slide-image">
+                            <img src="./pages/images/event-debate.jpeg" alt="Debate Competition">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Inter-University Debate</h3>
+                            <p class="event-date">April 5, 2024 | Main Conference Hall</p>
+                            <p class="event-description">Witness intellectual battles as our Debate Club competes against other universities.</p>
+                            <div class="event-stats">
+                                <span><i class="fas fa-users"></i> 200+ Spectators</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Main Conference Hall</span>
+                            </div>
+                            <a href="./pages/events.html" class="btn btn-primary">View Details</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="slideshow-controls">
-                <button class="prev-btn">❮</button>
-                <button class="next-btn">❯</button>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots-container">
+                    <span class="dot active-dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
             </div>
         </div>
     </section>
@@ -118,21 +169,36 @@
                     <h4>Contact Info</h4>
                     <p>Email: clubs@university.edu</p>
                     <p>Phone: (555) 123-4567</p>
+                    <p>Address: Student Center, Room 205</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="pages/about.html">About Us</a></li>
-                        <li><a href="pages/events.html">Events Calendar</a></li>
-                        <li><a href="pages/contact.html">Contact</a></li>
+                        <li><a href="./pages/about.html">About Us</a></li>
+                        <li><a href="./pages/events.html">Events Calendar</a></li>
+                        <li><a href="./pages/contact.html">Contact</a></li>
                     </ul>
                 </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
             </div>
-            <p class="copyright">&copy; 2024 University Clubs Hub. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 University Clubs Hub. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="pages/js/script.js"></script>
-    <script src="pages/js/slideshow.js"></script>
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <!-- JavaScript files -->
+    <script src="./pages/js/script.js"></script>
+    <script src="./pages/js/slideshow.js"></script>
 </body>
 </html>
