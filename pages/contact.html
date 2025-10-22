@@ -4,8 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - University Clubs Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="../pages/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Minimal CSS for contact page only */
+        
+        /* Contact grid layout */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        /* Contact methods styling */
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: var(--border-radius);
+        }
+        
+        .method-icon {
+            font-size: 1.5rem;
+            min-width: 40px;
+        }
+        
+        /* Office hours */
+        .office-hours {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+        }
+        
+        .hours-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .hour-day {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .hour-day:last-child {
+            border-bottom: none;
+        }
+        
+        /* Emergency contact */
+        .emergency-contact {
+            background: #fff3cd;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--warning-color);
+        }
+        
+        /* Club contacts grid */
+        .club-contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .club-contact-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .club-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* FAQ grid */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .faq-item {
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        /* Map section */
+        .map-placeholder {
+            background: var(--light-bg);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .club-contacts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hour-day {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            
+            .contact-method {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
 <!-- Header -->
@@ -20,10 +166,10 @@
       </button>
       <ul class="nav-menu" id="nav-menu">
         <li><a href="../index.html" class="nav-link">Home</a></li>
-        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="clubs.html" class="nav-link">Clubs</a></li>
         <li><a href="events.html" class="nav-link">Events</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -35,6 +181,10 @@
             <div class="container">
                 <h1>Contact Us</h1>
                 <p>Get in touch with the Clubs Hub team</p>
+                <div class="hero-actions">
+                    <a href="#contact-form" class="btn btn-primary">Send Message</a>
+                    <a href="#club-contacts" class="btn btn-outline">Club Contacts</a>
+                </div>
             </div>
         </section>
 
@@ -95,7 +245,7 @@
                                 <label for="newsletter">Subscribe to our monthly newsletter for club updates and events</label>
                             </div>
 
-                            <button type="submit" class="submit-btn">Send Message</button>
+                            <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
                         </form>
                     </div>
 
@@ -171,7 +321,7 @@
         </section>
 
         <!-- Club Specific Contacts -->
-        <section class="club-contacts-section">
+        <section class="club-contacts-section" id="club-contacts">
             <div class="container">
                 <h2>Club-Specific Contacts</h2>
                 <p>Need to reach a specific club directly? Here are their contact details:</p>
@@ -263,6 +413,9 @@
                             <div class="map-directions">
                                 <p><strong>Directions:</strong> Enter through the main Student Center doors, take the elevator to the 2nd floor, turn left, and we're the third door on the right.</p>
                             </div>
+                            <a href="#" class="btn btn-outline" style="margin-top: 1rem;">
+                                <i class="fas fa-map-marker-alt"></i> Get Directions
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -282,7 +435,7 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="../index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="clubs.html">All Clubs</a></li>
                         <li><a href="events.html">Events Calendar</a></li>
@@ -298,11 +451,39 @@
                     </ul>
                 </div>
             </div>
-            <p class="copyright">&copy; 2024 University Clubs Hub. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 University Clubs Hub. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
-    <script src="js/form-validation.js"></script>
+    <!-- JavaScript files -->
+    <script src="../pages/js/script.js"></script>
+    <script src="../pages/js/form-validation.js"></script>
+    
+    <!-- Contact-specific JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Contact form submission
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you within 24 hours.');
+                    contactForm.reset();
+                });
+            }
+            
+            // Email link functionality
+            const emailLinks = document.querySelectorAll('.contact-link');
+            emailLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const clubName = this.closest('.club-contact-card').querySelector('h3').textContent;
+                    alert(`Email client would open for ${clubName}`);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
