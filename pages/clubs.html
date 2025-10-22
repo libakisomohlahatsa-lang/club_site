@@ -4,13 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Clubs - University Clubs Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-   
+    <link rel="stylesheet" href="../pages/css/style.css">
     
-    <!-- React CDN for development -->
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <style>
+        /* Minimal CSS for new features only */
+        
+        /* Club filtering */
+        .events-filter {
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+            background: var(--light-bg);
+        }
+        
+        .filter-btn.active {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+        
+        /* Club actions */
+        .club-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        /* Upcoming events in club details */
+        .upcoming-events {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+        }
+        
+        .event-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .event-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Club leadership */
+        .club-leadership {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+        }
+        
+        /* Resource links */
+        .resource-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .club-actions {
+                flex-direction: column;
+            }
+            
+            .event-item {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            
+            .filter-options {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
 <body>
 <!-- Header -->
@@ -25,8 +98,8 @@
       </button>
       <ul class="nav-menu" id="nav-menu">
         <li><a href="../index.html" class="nav-link">Home</a></li>
-        <li><a href="about.html" class="nav-link active">About</a></li>
-        <li><a href="clubs.html" class="nav-link">Clubs</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="clubs.html" class="nav-link active">Clubs</a></li>
         <li><a href="events.html" class="nav-link">Events</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
@@ -38,59 +111,338 @@
         <section class="page-hero">
             <div class="container">
                 <h1>Our Student Clubs</h1>
-                <p>Find your community and pursue your passions</p>
+                <p>Find your community and pursue your passions with our diverse range of student organizations</p>
+                <div class="hero-actions">
+                    <a href="#clubs-listing" class="btn btn-primary">Explore Clubs</a>
+                    <a href="#registration" class="btn btn-outline">Join Now</a>
+                </div>
             </div>
         </section>
 
-        <section class="clubs-listing">
+        <!-- Club Statistics -->
+        <section class="stats-section">
             <div class="container">
-                <div class="club-detail" id="drama">
-                    <div class="club-info">
-                        <h2>🎭 Drama Club</h2>
-                        <p>The Drama Club provides a creative outlet for students interested in theater, acting, and stage production. We produce several plays throughout the year and welcome students of all experience levels.</p>
-                        <ul>
-                            <li>Weekly meetings: Tuesdays, 6 PM @ Arts Building</li>
-                            <li>Upcoming: Spring Musical Auditions - March 20</li>
-                            <li>Contact: drama@university.edu</li>
-                        </ul>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Active Clubs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1500+</div>
+                        <div class="stat-label">Student Members</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Events Monthly</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Categories</div>
                     </div>
                 </div>
-
-                <div class="club-detail" id="tech">
-                    <div class="club-info">
-                        <h2>💻 Tech Club</h2>
-                        <p>For students passionate about technology, programming, and innovation. We host hackathons, workshops, and tech talks to help members develop their skills and connect with industry professionals.</p>
-                        <ul>
-                            <li>Weekly meetings: Wednesdays, 7 PM @ Tech Lab</li>
-                            <li>Upcoming: 24-Hour Hackathon - March 22</li>
-                            <li>Contact: tech@university.edu</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Add other clubs similarly -->
             </div>
         </section>
 
-        <!-- React Registration Form -->
-        <section class="registration-section">
+        <!-- Club Categories Navigation -->
+        <section class="events-filter">
             <div class="container">
-                <h2>Join a Club Today!</h2>
-                <div class="react-registration-form" id="react-registration"></div>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-category="all">All Clubs</button>
+                    <button class="filter-btn" data-category="arts">Arts & Culture</button>
+                    <button class="filter-btn" data-category="academic">Academic</button>
+                    <button class="filter-btn" data-category="sports">Sports & Recreation</button>
+                    <button class="filter-btn" data-category="service">Service & Leadership</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clubs Listing -->
+        <section class="clubs-listing" id="clubs-listing">
+            <div class="container">
+                <!-- Drama Club -->
+                <div class="club-detail event-card" id="drama" data-category="arts">
+                    <div class="event-content">
+                        <div class="event-header">
+                            <div class="event-badge">
+                                <i class="fas fa-theater-masks"></i> Arts & Culture
+                            </div>
+                            <h2>Drama Club</h2>
+                        </div>
+                        <div class="about-grid">
+                            <div class="about-content">
+                                <h3>About Our Club</h3>
+                                <p>The Drama Club provides a creative outlet for students interested in theater, acting, and stage production. We produce several plays throughout the year and welcome students of all experience levels.</p>
+                                
+                                <h4>Club Activities</h4>
+                                <ul>
+                                    <li>Weekly acting workshops and improvisation sessions</li>
+                                    <li>Two major productions per semester</li>
+                                    <li>Guest workshops with theater professionals</li>
+                                    <li>Collaborations with local theaters</li>
+                                </ul>
+                                
+                                <h4>Meeting Information</h4>
+                                <div class="event-meta">
+                                    <span><i class="fas fa-calendar-alt"></i> Tuesdays, 6:00 PM</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Arts Building, Room 205</span>
+                                    <span><i class="fas fa-users"></i> 45 Active Members</span>
+                                </div>
+                                
+                                <h4>Upcoming Events</h4>
+                                <div class="upcoming-events">
+                                    <div class="event-item">
+                                        <strong>Spring Musical Auditions</strong>
+                                        <span>March 20, 2024 | 4:00 PM</span>
+                                    </div>
+                                    <div class="event-item">
+                                        <strong>One-Act Play Festival</strong>
+                                        <span>April 15-17, 2024 | 7:00 PM</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="club-leadership">
+                                    <h4>Club Leadership</h4>
+                                    <p><strong>President:</strong> Sarah Johnson (sjohnson@university.edu)</p>
+                                    <p><strong>Vice President:</strong> Michael Chen</p>
+                                </div>
+                            </div>
+                            <div class="about-image">
+                                <img src="../pages/images/drama-club.jpg" alt="Drama Club performance" style="width: 100%; border-radius: var(--border-radius);">
+                                <div class="club-actions">
+                                    <a href="mailto:drama@university.edu" class="btn btn-primary">
+                                        <i class="fas fa-envelope"></i> Contact Club
+                                    </a>
+                                    <button class="btn btn-outline join-club-btn" data-club="drama">
+                                        <i class="fas fa-plus"></i> Join Club
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Club -->
+                <div class="club-detail event-card" id="tech" data-category="academic">
+                    <div class="event-content">
+                        <div class="event-header">
+                            <div class="event-badge">
+                                <i class="fas fa-laptop-code"></i> Academic
+                            </div>
+                            <h2>Tech Club</h2>
+                        </div>
+                        <div class="about-grid">
+                            <div class="about-content">
+                                <h3>About Our Club</h3>
+                                <p>For students passionate about technology, programming, and innovation. We host hackathons, workshops, and tech talks to help members develop their skills and connect with industry professionals.</p>
+                                
+                                <h4>Club Activities</h4>
+                                <ul>
+                                    <li>Weekly coding workshops and project collaborations</li>
+                                    <li>Annual 24-hour hackathon</li>
+                                    <li>Tech industry guest speakers</li>
+                                    <li>Competitive programming practice</li>
+                                    <li>Open source project contributions</li>
+                                </ul>
+                                
+                                <h4>Meeting Information</h4>
+                                <div class="event-meta">
+                                    <span><i class="fas fa-calendar-alt"></i> Wednesdays, 7:00 PM</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Tech Building, Lab 304</span>
+                                    <span><i class="fas fa-users"></i> 85 Active Members</span>
+                                </div>
+                                
+                                <h4>Upcoming Events</h4>
+                                <div class="upcoming-events">
+                                    <div class="event-item">
+                                        <strong>24-Hour Hackathon</strong>
+                                        <span>March 22-23, 2024 | Tech Building</span>
+                                    </div>
+                                    <div class="event-item">
+                                        <strong>AI & Machine Learning Workshop</strong>
+                                        <span>April 5, 2024 | 6:00 PM</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="club-leadership">
+                                    <h4>Club Leadership</h4>
+                                    <p><strong>President:</strong> Alex Rodriguez (arodriguez@university.edu)</p>
+                                    <p><strong>Technical Lead:</strong> Priya Patel</p>
+                                </div>
+                                
+                                <div class="club-resources">
+                                    <h4>Resources</h4>
+                                    <div class="resource-links">
+                                        <a href="#"><i class="fab fa-github"></i> GitHub Organization</a>
+                                        <a href="#"><i class="fab fa-slack"></i> Slack Channel</a>
+                                        <a href="#"><i class="fas fa-file-pdf"></i> Club Handbook</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about-image">
+                                <img src="../pages/images/tech-club.jpg" alt="Tech Club workshop" style="width: 100%; border-radius: var(--border-radius);">
+                                <div class="club-actions">
+                                    <a href="mailto:tech@university.edu" class="btn btn-primary">
+                                        <i class="fas fa-envelope"></i> Contact Club
+                                    </a>
+                                    <button class="btn btn-outline join-club-btn" data-club="tech">
+                                        <i class="fas fa-plus"></i> Join Club
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional clubs would follow the same pattern -->
+            </div>
+        </section>
+
+        <!-- Registration Form -->
+        <section class="registration-section" id="registration">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Join a Club Today!</h2>
+                    <p>Become part of our vibrant student community</p>
+                </div>
+                <div class="event-registration-form">
+                    <h3>Club Membership Registration</h3>
+                    <form id="join-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="full-name">Full Name *</label>
+                                <input type="text" id="full-name" name="full-name" required data-validate="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="student-id">Student ID *</label>
+                                <input type="text" id="student-id" name="student-id" required data-validate="text">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">University Email *</label>
+                                <input type="email" id="email" name="email" required data-validate="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" data-validate="phone">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="club-select">Select Club(s) *</label>
+                            <select id="club-select" name="club-select" multiple required style="height: 120px; padding: 0.5rem;">
+                                <option value="drama">Drama Club</option>
+                                <option value="tech">Tech Club</option>
+                                <option value="debate">Debate Club</option>
+                                <option value="sports">Sports Club</option>
+                            </select>
+                            <small style="color: var(--text-color); opacity: 0.7; font-size: 0.85rem; display: block; margin-top: 0.5rem;">
+                                Hold Ctrl/Cmd to select multiple clubs
+                            </small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="experience">Previous Experience/Interest</label>
+                            <textarea id="experience" name="experience" rows="4" placeholder="Tell us about your interest in the club and any relevant experience..."></textarea>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="agree-terms" name="agree-terms" required>
+                            <label for="agree-terms">I agree to the <a href="#">Club Membership Terms</a> and understand that my information will be shared with club leadership *</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary submit-btn">Submit Application</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="main-footer">
-        <!-- Same footer as index.html -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Email: clubs@university.edu</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Address: Student Center, Room 205</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events Calendar</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 University Clubs Hub. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- Load React Components -->
-    <script type="text/babel" src="react-components/club-registration.js"></script>
-    <script type="text/babel" src="react-components/react-app.js"></script>
+    <!-- JavaScript files -->
+    <script src="../pages/js/script.js"></script>
+    <script src="../pages/js/form-validation.js"></script>
     
-    <!-- Existing JavaScript -->
-    <script src="js/script.js"></script>
-    <script src="js/form-validation.js"></script>
+    <!-- Club-specific JavaScript -->
+    <script>
+        // Club filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const clubDetails = document.querySelectorAll('.club-detail');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // Filter clubs
+                    clubDetails.forEach(club => {
+                        if (category === 'all' || club.getAttribute('data-category') === category) {
+                            club.style.display = 'block';
+                        } else {
+                            club.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Join club button functionality
+            const joinButtons = document.querySelectorAll('.join-club-btn');
+            joinButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const clubName = this.getAttribute('data-club');
+                    const clubSelect = document.getElementById('club-select');
+                    
+                    // Scroll to registration form
+                    document.getElementById('registration').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Pre-select the club in the form
+                    for (let option of clubSelect.options) {
+                        if (option.value === clubName) {
+                            option.selected = true;
+                            break;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
